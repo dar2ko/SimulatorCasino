@@ -20,7 +20,7 @@ public class Bank
         { state+=x;
 	}
 
-	public void substractMoney(int x) 
+	public void subtractMoney(int x) 
         { state-=x;
 	}
         

@@ -29,7 +29,13 @@ class BlackJack {
     }
 
     void gameBlackJack() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      //payment for game
+        Bank.getInst().addMoney(60);
+        Gamer.getInst().subtractMoney(60);
+        all++;
+        SimulatorCasino.cls();
+        
+     //game
     }
     
 }
