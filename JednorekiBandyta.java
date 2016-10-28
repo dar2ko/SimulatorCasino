@@ -48,6 +48,7 @@ class JednorekiBandyta {
      // if additionally this number is 3 - you win double reward   
         System.out.printf("Wylosowane liczby to:\n %30s %30s %30s\n\n",a,b,c);
         if(a==b && b==c)
+
             if (a==3) {
                 System.out.println("WYGRANA PODWOJNA NAGRODA!!!! $200 trafia na Twoje konto.");
                 Bank.getInst().subtractMoney(200);
