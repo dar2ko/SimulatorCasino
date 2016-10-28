@@ -3,7 +3,7 @@ package simulatorcasino;
 public class Bank 
 {
     private static Bank inst;
-    private int state = 999999;
+    private int state = 100000;
 
         //singleton
         public static synchronized Bank getInst() 
