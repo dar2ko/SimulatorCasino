@@ -24,7 +24,7 @@ public class Casino {
 
       do{  
         do {
-            System.out.println("Dokonaj wyboru:");
+            System.out.println("\n\n\nDokonaj wyboru:");
             System.out.println("B - gra w BlackJack ($60)");
             System.out.println("J - gra w JednorekiegoBandyte ($30)");
             System.out.println("Q - wyjscie");
@@ -44,9 +44,9 @@ public class Casino {
         System.out.println("******************RAPORT   KONCOWY******************");
         System.out.println("****************************************************");
         System.out.println("Rozegranych gier BlackJack: "+BlackJack.getAll());
-        if(BlackJack.getAll()>0) System.out.println("Stosunek zwyciestw: "+BlackJack.ratio());
+        if(BlackJack.getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",BlackJack.ratio());
         System.out.println("Rozegranych gier JackPot: "+JednorekiBandyta.getAll());
-        if(JednorekiBandyta.getAll()>0) System.out.println("Stosunek zwyciestw: "+JednorekiBandyta.ratio());
+        if(JednorekiBandyta.getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",JednorekiBandyta.ratio());
         System.out.println("Bilans koncowy: "+(100000-Bank.getInst().getMoney()));
     }
 }

@@ -5,6 +5,9 @@
  */
 package simulatorcasino;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author Mariusz Krz
@@ -14,22 +17,56 @@ class JednorekiBandyta {
     private static int all=0;
     private static int won=0;
     
-    public static synchronized JednorekiBandyta inst() {
-        if(jednorekibandyta == null) {
-            jednorekibandyta = new JednorekiBandyta();
+    public static synchronized JednorekiBandyta inst() 
+    {   if(jednorekibandyta == null) 
+        { jednorekibandyta = new JednorekiBandyta();
         }
         return jednorekibandyta;}
 
-    static int getAll() {
-        return all;
+    static int getAll() 
+    { return all;
     }
 
-    static double ratio() {
-        return won/all;
+    static double ratio() 
+    { return won/all;
     }
 
-    void gameJednorekiBandyta() {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void gameJednorekiBandyta() 
+    {//payment for game
+        Bank.getInst().addMoney(30);
+        Gamer.getInst().subtractMoney(30);
+        all++;
+        SimulatorCasino.cls();
+        
+     //game
+        Random rand = new Random();
+        int a = rand.nextInt(3)+1;
+        int b = rand.nextInt(3)+1;
+        int c = rand.nextInt(3)+1;
+     // this function randomize 3 numbers.
+     // if number on each of them is the same - you win
+     // if additionally this number is 3 - you win double reward   
+        System.out.printf("Wylosowane liczby to:\n %30s %30s %30s\n\n",a,b,c);
+        if(a==b && b==c)
+            if (a==2) {
+                System.out.println("WYGRANA PODWOJNA NAGRODA!!!! $100 trafia na Twoje konto.");
+                Bank.getInst().subtractMoney(100);
+                Gamer.getInst().addMoney(100);
+                won++;
+            }
+            else {
+                System.out.println("WYGRANA!!!! $50 trafia na Twoje konto.");
+                Bank.getInst().subtractMoney(50);
+                Gamer.getInst().addMoney(50);
+                won++;
+            }
+        else {
+            System.out.println("Niestety przegrana. Moze innym razem sie uda");
+        }
+        System.out.println("Nacisnij dowolny klawisz aby kontynuowac...");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+        SimulatorCasino.cls();
     }
     
 }
