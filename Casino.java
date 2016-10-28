@@ -43,10 +43,10 @@ public class Casino {
         System.out.println("****************************************************");
         System.out.println("******************RAPORT   KONCOWY******************");
         System.out.println("****************************************************");
-        System.out.println("Rozegranych gier BlackJack: "+BlackJack.getAll());
-        if(BlackJack.getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",BlackJack.ratio());
-        System.out.println("Rozegranych gier JackPot: "+JednorekiBandyta.getAll());
-        if(JednorekiBandyta.getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",JednorekiBandyta.ratio());
+        System.out.println("Rozegranych gier BlackJack: "+BlackJack.inst().getAll());
+        if(BlackJack.inst().getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",BlackJack.inst().getRatio());
+        System.out.println("Rozegranych gier JackPot: "+JednorekiBandyta.inst().getAll());
+        if(JednorekiBandyta.inst().getAll()>0) System.out.printf("Stosunek zwyciestw: %3.5f\n",JednorekiBandyta.inst().getRatio());
         System.out.println("Bilans koncowy: "+(100000-Bank.getInst().getMoney()));
     }
 }

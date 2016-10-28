@@ -23,15 +23,15 @@ class JednorekiBandyta {
         }
         return jednorekibandyta;}
 
-    static int getAll() 
+    public int getAll() 
     { return all;
     }
 
-    static double ratio() 
+    public double getRatio() 
     { return won/all;
     }
 
-    void gameJednorekiBandyta() 
+    public void gameJednorekiBandyta() 
     {//payment for game
         Bank.getInst().addMoney(30);
         Gamer.getInst().subtractMoney(30);
