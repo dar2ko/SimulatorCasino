@@ -10,13 +10,26 @@ package simulatorcasino;
  * @author Mariusz Krz
  */
 class BlackJack {
-
-    static int getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static BlackJack blackjack;
+    private static int all=0;
+    private static int won=0;
+    
+    public static synchronized BlackJack inst() 
+    {if(blackjack == null) 
+        {
+            blackjack = new BlackJack();
+        }
+        return blackjack;}
+    static int getAll() 
+    { return all;
     }
 
-    static String ratio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static double ratio() 
+    { return won/all;
+    }
+
+    void gameBlackJack() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

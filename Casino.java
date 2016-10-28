@@ -21,21 +21,20 @@ public class Casino {
         
         Gamer.getInst().setState(money); 
         String dec;
-        BlackJack bj; 
-        JackPot jp;
+
       do{  
         do {
             System.out.println("Dokonaj wyboru:");
             System.out.println("B - gra w BlackJack ($60)");
-            System.out.println("J - gra w JackPot ($30)");
+            System.out.println("J - gra w JednorekiegoBandyte ($30)");
             System.out.println("Q - wyjscie");
             dec = input.next().toUpperCase(); 
            } while(!dec.equals("Q")&&!dec.equals("B")&&!dec.equals("J"));
         if (dec.equals("B"))
-            if (Gamer.getInst().getState()>=60) bj = new BlackJack();
+            if (Gamer.getInst().getState()>=60) BlackJack.inst().gameBlackJack();
             else System.out.println("Masz za malo pieniedzy na gre w BlackJack");
         if (dec.equals("J"))
-            if (Gamer.getInst().getState()>=30) jp = new JackPot();
+            if (Gamer.getInst().getState()>=30) JednorekiBandyta.inst().gameJednorekiBandyta();
             else System.out.println("Masz za malo pieniedzy na gre w JackPot");
         
       }while (Gamer.getInst().getState()>30 && !dec.equals("Q"));
@@ -46,8 +45,8 @@ public class Casino {
         System.out.println("****************************************************");
         System.out.println("Rozegranych gier BlackJack: "+BlackJack.getAll());
         if(BlackJack.getAll()>0) System.out.println("Stosunek zwyciestw: "+BlackJack.ratio());
-        System.out.println("Rozegranych gier JackPot: "+JackPot.getAll());
-        if(JackPot.getAll()>0) System.out.println("Stosunek zwyciestw: "+JackPot.ratio());
+        System.out.println("Rozegranych gier JackPot: "+JednorekiBandyta.getAll());
+        if(JednorekiBandyta.getAll()>0) System.out.println("Stosunek zwyciestw: "+JednorekiBandyta.ratio());
         System.out.println("Bilans koncowy: "+(100000-Bank.getInst().getMoney()));
     }
 }
