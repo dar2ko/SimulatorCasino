@@ -27,15 +27,20 @@ public class Casino {
             System.out.println("\n\n\nDokonaj wyboru:");
             System.out.println("B - gra w BlackJack ($60)");
             System.out.println("J - gra w JednorekiegoBandyte ($30)");
+            System.out.println("S - Stan konta");
             System.out.println("Q - wyjscie");
             dec = input.next().toUpperCase(); 
-           } while(!dec.equals("Q")&&!dec.equals("B")&&!dec.equals("J"));
+           } while(!dec.equals("Q")&&!dec.equals("B")&&!dec.equals("J")&&!dec.equals("S"));
         if (dec.equals("B"))
             if (Gamer.getInst().getState()>=60) BlackJack.inst().gameBlackJack();
             else System.out.println("Masz za malo pieniedzy na gre w BlackJack");
         if (dec.equals("J"))
             if (Gamer.getInst().getState()>=30) JednorekiBandyta.inst().gameJednorekiBandyta();
             else System.out.println("Masz za malo pieniedzy na gre w JackPot");
+        if (dec.equals("S"))
+        {
+            System.out.println("\n\n-------------STAN KONTA--------------\n"+Gamer.getInst().getState()+"\n--------------------------------------");
+        }
         
       }while (Gamer.getInst().getState()>30 && !dec.equals("Q"));
             

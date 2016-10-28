@@ -154,7 +154,8 @@ class BlackJack {
         
         return part_sum;
     }
-    
+    /* This function gives additional card to croupier or gamer
+    */
     public void hit(List<Integer> name)
     {
             int index = rand.nextInt(deckOfCards.size());
@@ -170,14 +171,38 @@ class BlackJack {
        System.out.println("Nacisnij dowolny klawisz aby kontynuowac...");
        input.nextLine();
     }
-
+    /* This function sums up the game and gives rewards.
+    Win: 100
+    Blackjack: +$20
+    Bid: *2 - only with BlackJack
+    */
     public void score(int gamer, int croupier) {
-        System.out.printf("  WYNIK GRACZA: %15d", gamer);
-        System.out.printf("WYNIK KRUPIERA: %15d", croupier);
+        System.out.printf("  WYNIK GRACZA: %15d\n", gamer);
+        System.out.printf("WYNIK KRUPIERA: %15d\n\n", croupier);
         if (gamer>21)
             if (croupier>21) System.out.println("Nikt nie wygral.");
             else System.out.println("Gracz przegral");
-        if (gamer==21) System.out.println("GRACZ WYGRAL BLACKJACKA!!! ");
+      else  if (gamer==21) {System.out.println("GRACZ WYGRAL BLACKJACKA!!! ");
+             if (bidup==true) { System.out.println("Dodatkowo gracz podwoil zaklad!!!");
+                                System.out.println("Na konto gracza wplywa $240!!!");
+                                Bank.getInst().subtractMoney(240);
+                                Gamer.getInst().addMoney(240);
+                                won++;
+                              }
+             else { System.out.println("Na konto gracza wplywa $120!!!");
+                    Bank.getInst().subtractMoney(120);
+                    Gamer.getInst().addMoney(120);
+                    won++;
+                    }}
+     else if ((21-gamer)<(21-croupier)) {
+                                System.out.println("Gracz wygral z krupierem!!!");
+                                System.out.println("Na konto gracza wplywa $100!!!");
+                                Bank.getInst().subtractMoney(100);
+                                Gamer.getInst().addMoney(100);
+                                won++; }
+     else if ((21-gamer)==(21-croupier)) {
+                                System.out.println("REMIS");}
+     else System.out.println("Gracz przegral.");
     }
 
     
