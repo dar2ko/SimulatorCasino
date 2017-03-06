@@ -1,5 +1,5 @@
 package simulatorcasino;
-
+//ukradzione
 public class Bank 
 {
     private static Bank inst;
